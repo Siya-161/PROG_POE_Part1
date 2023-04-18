@@ -6,15 +6,19 @@ namespace Part1
     {
         int noOfIngredients;
         string[] ingredientNames;
-        int[] quantities;
+        double[] quantities;
         string[] unitsOfMeasurement;
         int noOfSteps;
         string[] stepsDescription;
+        double factor;
+        //double[] scaledAppQuantities;
         //string[] ingredients;
         //string[] steps;
         public static void Main(string[] args)
         {
             RecipeApp app = new RecipeApp();
+
+            app.factor = 1.0;
 
             enterRecipe(app);
 
@@ -22,19 +26,23 @@ namespace Part1
 
             display(app);
 
+            menu(app);
+
 
         }
 
         public static void enterRecipe(RecipeApp app) // method for entering the details of a recipe
         {
+            
             Console.WriteLine("Welcome. Please proceed to enter the details for your recipe.");
             underline();
 
             Console.WriteLine("Number of ingredients: ");
             app.noOfIngredients = Convert.ToInt32(Console.ReadLine());
             app.ingredientNames = new string[app.noOfIngredients];
-            app.quantities = new int[app.noOfIngredients];
+            app.quantities = new double[app.noOfIngredients];
             app.unitsOfMeasurement = new string[app.noOfIngredients];
+            int inputStorage;
             underline();
 
             for (int i = 0; i < app.noOfIngredients; i++)
@@ -43,7 +51,8 @@ namespace Part1
                 app.ingredientNames[i] = Console.ReadLine();
 
                 Console.WriteLine("Quantity of ingredient #{0}: ", i + 1);
-                app.quantities[i] = Convert.ToInt32(Console.ReadLine());
+                inputStorage = Convert.ToInt32(Console.ReadLine());
+                app.quantities[i] = Convert.ToDouble(inputStorage);
 
                 Console.WriteLine("Unit of measurement for ingredient #{0}: ", i + 1);
                 app.unitsOfMeasurement[i] = Console.ReadLine();
@@ -96,49 +105,106 @@ namespace Part1
         public static void menu(RecipeApp app)
         {
             int menuOption;
-            Console.WriteLine("1. Scale Recipe \r\n" +
+
+            underline();
+            int sentinelValue = 1;
+        
+        while(sentinelValue == 1)
+            {
+                Console.WriteLine("1. Scale Recipe \r\n" +
                 "2. Reset values \r\n" +
-                "3. Clear data and enter new recipe \r\n");
+                "3. Clear data and enter new recipe \r\n"
+                + "4. Display \r\n"
+                + "5. Close app");
 
-            menuOption = Convert.ToInt32 (Console.ReadLine());
+                menuOption = Convert.ToInt32(Console.ReadLine());
 
+
+                if (menuOption == 1)
+                {
+                    sentinelValue = 0;
+                    scaleValues(app);
+                    
+                }
+
+                else if (menuOption == 2)
+                {
+                    sentinelValue = 0;
+                    resetValues(app);
+                    
+                }
+
+                else if (menuOption == 3)
+                {
+                    sentinelValue = 0;
+                    clearAndEnterNew(app);
+                    
+                }
+
+                else if(menuOption == 4)
+                {
+                    display(app);
+                }
+
+                else if(menuOption == 5)
+                {
+                    Environment.Exit(0);
+                }
+
+                else
+                {
+                    Console.WriteLine("You have entered an invalid value");
+                    sentinelValue = 1;
+                }
+            }
             
-            if(menuOption == 1 )
-            {
-                scaleValues(app);
-            }
-
-            else if(menuOption == 2 )
-            {
-                resetValues(app);
-            }
-
-            else if( menuOption == 3 )
-            {
-                clearAndEnterNew(app);
-            }
-
-            else
-            {
-                Console.WriteLine("You have entered an invalid value");
-            }
         }
         public static void scaleValues(RecipeApp app)
         {
-            double factor;
-            Console.WriteLine("Enter the factor you would like to scale the recipe by: ");
-            factor = Convert.ToDouble (Console.ReadLine());
+            //app.scaledAppQuantities = new double[app.noOfIngredients];
 
+            Console.WriteLine("Enter the factor you would like to scale the recipe by: ");
+            app.factor = Convert.ToDouble(Console.ReadLine());
+
+
+
+            for (int i = 0; i < app.noOfIngredients; i++)
+            {
+                app.quantities[i] = app.quantities[i] * app.factor;
+            }
+
+            Console.WriteLine("The recipe has been scaled");
+
+            menu(app);
         }
 
         public static void resetValues(RecipeApp app)
         {
-            Console.WriteLine();
+            for (int i = 0; i < app.noOfIngredients; i++)
+            {
+                app.quantities[i] = app.quantities[i] / app.factor;
+            }
+
+            Console.WriteLine("The recipe has been reset");
+
+
+            menu(app);
         }
 
         public static void clearAndEnterNew(RecipeApp app)
         {
-            Console.WriteLine();
+            app.noOfIngredients = 0;
+            app.noOfSteps = 0;
+            app.factor = 0.0;
+            Array.Clear(app.ingredientNames, 0, app.ingredientNames.Length);
+            Array.Clear(app.quantities, 0, app.quantities.Length);
+            Array.Clear(app.unitsOfMeasurement, 0, app.unitsOfMeasurement.Length);
+            Array.Clear(app.stepsDescription, 0, app.stepsDescription.Length);
+
+            enterRecipe(app);
+            enterSteps(app);
+            display(app);
+            menu(app);
         }
     }
 }
