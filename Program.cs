@@ -85,8 +85,13 @@ namespace Part1
         {
             Console.WriteLine("Recipe details: ");
 
+            Console.ForegroundColor = ConsoleColor.Green;
+
             Console.WriteLine("Ingredients: ");
-            for(int i=0; i < app.noOfIngredients; i++ )
+
+            Console.ResetColor();
+
+            for (int i=0; i < app.noOfIngredients; i++ )
             {
                 Console.WriteLine(app.quantities[i] + app.unitsOfMeasurement[i] + " of " + app.ingredientNames[i] );
                  
@@ -100,7 +105,7 @@ namespace Part1
 
 
             }
-            
+
             underline();
         }
 
