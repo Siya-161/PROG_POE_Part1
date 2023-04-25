@@ -100,6 +100,8 @@ namespace Part1
 
 
             }
+            
+            underline();
         }
 
         public static void menu(RecipeApp app)
