@@ -11,9 +11,7 @@ namespace Part1
         int noOfSteps;
         string[] stepsDescription;
         double factor;
-        //double[] scaledAppQuantities;
-        //string[] ingredients;
-        //string[] steps;
+         
         public static void Main(string[] args)
         {
             RecipeApp app = new RecipeApp();
