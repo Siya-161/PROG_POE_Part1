@@ -169,7 +169,7 @@ namespace Part1
             }
             
         }
-        public static void scaleValues(RecipeApp app)
+        public static void scaleValues(RecipeApp app) //this method scales the values of the recpie ingredients
         {
             //app.scaledAppQuantities = new double[app.noOfIngredients];
 
