@@ -119,11 +119,13 @@ namespace Part1
         
         while(sentinelValue == 1)
             {
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("1. Scale Recipe \r\n" +
                 "2. Reset values \r\n" +
                 "3. Clear data and enter new recipe \r\n"
                 + "4. Display \r\n"
                 + "5. Close app");
+                Console.ResetColor();
 
                 menuOption = Convert.ToInt32(Console.ReadLine());
 
@@ -161,8 +163,10 @@ namespace Part1
 
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You have entered an invalid value");
                     sentinelValue = 1;
+                    Console.ResetColor();
                 }
             }
             
