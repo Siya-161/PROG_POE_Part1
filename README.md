@@ -1,1 +1,2 @@
-# NewRepo
+PROG POE Part 1
+This is part 1 of my programming POE. It is a console application that allows a user to enter the details - ingredients and steps - for a single recipe. The application prompts the user to enter the relevant details for their recipe and once these details have been entered, the app allows the user to display the recipe and scale it by scaling the ingredient quantities. The app also allows users to clear the details of the recipe and enter new values. The application also has a menu that pops up and continuously prompts the user to select whether they would like to scale the recipe, scale the ingredient quantities, display the recipe, clear and enter a new recipe or exit the application.
