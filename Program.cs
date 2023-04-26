@@ -188,7 +188,7 @@ namespace Part1
             menu(app);
         }
 
-        public static void resetValues(RecipeApp app)
+        public static void resetValues(RecipeApp app) //this method resets the scale of the recipe
         {
             for (int i = 0; i < app.noOfIngredients; i++)
             {
