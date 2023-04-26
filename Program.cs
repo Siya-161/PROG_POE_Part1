@@ -49,6 +49,7 @@ namespace Part1
 
             for (int i = 0; i < app.noOfIngredients; i++)
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Name of ingredient #{0}: ", i + 1);
                 app.ingredientNames[i] = Console.ReadLine();
 
@@ -58,6 +59,7 @@ namespace Part1
 
                 Console.WriteLine("Unit of measurement for ingredient #{0}: ", i + 1);
                 app.unitsOfMeasurement[i] = Console.ReadLine();
+                Console.ResetColor();
                 underline();
             }
         }
