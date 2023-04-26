@@ -63,7 +63,7 @@ namespace Part1
         {
             Console.WriteLine("Enter the number of steps: ");
             app.noOfSteps = Convert.ToInt32(Console.ReadLine());
-            //app.steps = new string[app.noOfSteps];
+             
             app.stepsDescription = new string[app.noOfSteps];
             underline();
 
