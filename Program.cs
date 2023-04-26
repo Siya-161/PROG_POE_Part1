@@ -110,7 +110,7 @@ namespace Part1
             underline();
         }
 
-        public static void menu(RecipeApp app)
+        public static void menu(RecipeApp app) // this is a menu that users can pick options on how to manipulate the recipe from. 
         {
             int menuOption;
 
