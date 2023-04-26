@@ -201,7 +201,7 @@ namespace Part1
             menu(app);
         }
 
-        public static void clearAndEnterNew(RecipeApp app)
+        public static void clearAndEnterNew(RecipeApp app) //this method clears the entire recipe and allows the user to enter new ingredients and steps
         {
             app.noOfIngredients = 0;
             app.noOfSteps = 0;
