@@ -33,9 +33,10 @@ namespace Part1
 
         public static void enterRecipe(RecipeApp app) // method for entering the details of a recipe
         {
-            
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Welcome. Please proceed to enter the details for your recipe.");
             underline();
+            Console.ResetColor();
 
             Console.WriteLine("Number of ingredients: ");
             app.noOfIngredients = Convert.ToInt32(Console.ReadLine());
