@@ -83,7 +83,9 @@ namespace Part1
 
         public static void display(RecipeApp app) //method for displaying the full recipe to the user
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Recipe details: ");
+            Console.ResetColor();
 
             Console.ForegroundColor = ConsoleColor.Green;
 
