@@ -169,7 +169,7 @@ namespace Part1
         }
         public static void scaleValues(RecipeApp app) //this method scales the values of the recpie ingredients
         {
-            //app.scaledAppQuantities = new double[app.noOfIngredients];
+             
 
             Console.WriteLine("Enter the factor you would like to scale the recipe by: ");
             app.factor = Convert.ToDouble(Console.ReadLine());
