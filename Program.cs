@@ -36,13 +36,16 @@ namespace Part1
             underline();
             Console.ResetColor();
 
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Number of ingredients: ");
+            Console.ResetColor();
             app.noOfIngredients = Convert.ToInt32(Console.ReadLine());
             app.ingredientNames = new string[app.noOfIngredients];
             app.quantities = new double[app.noOfIngredients];
             app.unitsOfMeasurement = new string[app.noOfIngredients];
             int inputStorage;
             underline();
+            
 
             for (int i = 0; i < app.noOfIngredients; i++)
             {
